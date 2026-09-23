@@ -1,0 +1,52 @@
+/* RelatedCard — oui_view_relative_link.xml
+   padding: 20 top/bottom, 24 end; title 18sp; links 16sp bold, radius 26. */
+
+.oui-related-card {
+  margin: 20px 0;
+  padding: 20px 24px 20px 0;
+  border-radius: var(--oui-radius-xl);
+  background: var(--oui-link-bg); /* colorPrimary @ 5.9% / 30.2% */
+}
+
+.oui-related-card__title {
+  margin: 0 0 10px;
+  padding-left: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--oui-text-strong);
+}
+
+.oui-related-card__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 32px; /* view start padding 24 + link margin 8 */
+}
+
+.oui-related-card__link {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 6px 16px; /* text padding 16 / 6 */
+  border: none;
+  border-radius: var(--oui-radius-xl);
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-related-card__link:hover {
+  background: var(--oui-link-bg-pressed);
+}
+
+.oui-related-card__label {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--oui-link-text); /* colorPrimaryDark */
+  overflow-wrap: anywhere;
+}

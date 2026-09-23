@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "types": ["vite/client"],
+    "paths": {
+      "oneui-react": ["./src/index.ts"],
+      "oneui-react/icons": ["./src/oneui-icons/index.ts"]
+    }
+  },
+  "include": ["src", "demo"]
+}

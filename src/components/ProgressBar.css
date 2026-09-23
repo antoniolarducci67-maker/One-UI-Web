@@ -1,0 +1,90 @@
+/* SeslProgressBar port. */
+
+.oui-progress-circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--oui-primary);
+}
+
+.oui-progress-circle__track {
+  stroke: var(--oui-slider-rail);
+  opacity: 0.5;
+}
+
+.oui-progress-circle__bar {
+  stroke: currentColor;
+}
+
+.oui-progress-circle.is-indeterminate .oui-progress-circle__bar {
+  stroke-dasharray: 0.75 1;
+  transform-origin: 50% 50%;
+  animation: oui-circle-spin 1.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes oui-circle-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.oui-progress-circle__message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--oui-dialog-text);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.oui-progress-linear-wrap {
+  width: 100%;
+}
+
+.oui-progress-linear {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--oui-slider-rail);
+  overflow: hidden;
+}
+
+.oui-progress-linear__bar {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--oui-primary);
+  transition: width var(--oui-motion-medium) var(--oui-ease);
+}
+
+.oui-progress-linear.is-indeterminate .oui-progress-linear__bar {
+  width: 40% !important;
+  animation: oui-linear-indeterminate 1.4s ease-in-out infinite;
+}
+
+@keyframes oui-linear-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}
+
+.oui-progress-linear__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--oui-dialog-subtext); /* oui_progress_dialog_horizontal_text_color */
+}

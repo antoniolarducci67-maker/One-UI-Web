@@ -1,0 +1,26 @@
+/* List separator / subheader — sesl_list_subheader_* tokens:
+   13sp bold, #8c8c8c (light) / #999999 (dark), padding 13/5. */
+
+.oui-separator--label {
+  min-height: 20px; /* sesl_list_subheader_min_height */
+  padding: 13px 24px 5px;
+  display: flex;
+  align-items: center;
+}
+
+.oui-separator__text {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--oui-subheader-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.oui-separator--line {
+  height: 1px;
+  margin: 9.5px 0;
+  background: var(--oui-divider);
+}

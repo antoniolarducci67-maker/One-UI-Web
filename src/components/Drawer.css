@@ -1,0 +1,56 @@
+/* DrawerLayout — panel marginTop 16dp, bg = oui_background_color,
+   scrim = #33000000 light / #cc000000 dark. */
+
+.oui-drawer-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+}
+
+.oui-drawer-root.is-open {
+  pointer-events: auto;
+}
+
+.oui-drawer__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--oui-drawer-dim);
+  opacity: 0;
+  transition: opacity var(--oui-motion-medium) var(--oui-ease);
+}
+
+.oui-drawer-root.is-open .oui-drawer__scrim {
+  opacity: 1;
+}
+
+.oui-drawer {
+  position: absolute;
+  top: 16px; /* oui_drawerlayout_drawer_top_margin */
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--oui-surface);
+  color: var(--oui-text);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18);
+  transform: translateX(-105%);
+  transition: transform var(--oui-motion-medium) var(--oui-ease);
+  outline: none;
+  overflow: hidden;
+}
+
+.oui-drawer-root.is-open .oui-drawer {
+  transform: translateX(0);
+}
+
+.oui-drawer__header {
+  flex: none;
+  padding: 8px;
+}
+
+.oui-drawer__content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}

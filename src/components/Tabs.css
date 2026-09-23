@@ -1,0 +1,113 @@
+/* MarginsTabLayout / Material tabs (Widget.Design.TabLayout). */
+
+.oui-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  min-height: 48px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.oui-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.oui-tabs__tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1 0 auto;
+  min-width: 64px;
+  padding: 0 16px;
+  min-height: 48px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--oui-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-tabs__tab:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.oui-tabs__tab.is-active {
+  color: var(--oui-primary);
+}
+
+.oui-tabs__icon {
+  display: inline-flex;
+}
+
+.oui-tabs__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: var(--oui-badge);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* underline variant */
+
+.oui-tabs--underline {
+  border-bottom: 1px solid var(--oui-divider);
+}
+
+.oui-tabs__indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  max-width: 64px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--oui-primary);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform var(--oui-motion-medium) var(--oui-ease);
+}
+
+.oui-tabs__tab.is-active .oui-tabs__indicator {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* pill variant */
+
+.oui-tabs--pill {
+  gap: 8px;
+  border-bottom: none;
+  padding-block: 6px;
+}
+
+.oui-tabs--pill .oui-tabs__tab {
+  flex: 1 1 0;
+  min-height: 43px; /* oui_tab_layout_custom_button_background height */
+  border-radius: var(--oui-radius-xl);
+  color: var(--oui-text);
+  font-weight: 600;
+}
+
+.oui-tabs--pill .oui-tabs__tab.is-active {
+  background: var(--oui-link-bg);
+  color: var(--oui-link-text);
+}
+
+.oui-tabs--pill .oui-tabs__tab:hover:not(.is-active) {
+  background: rgba(0, 0, 0, 0.04);
+}

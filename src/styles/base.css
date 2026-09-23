@@ -1,0 +1,54 @@
+/* Shared base styles for One UI React components. */
+
+[data-oneui-theme] {
+  font-family: var(--oui-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.oui-focusable:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible,
+[role='switch']:focus-visible,
+[role='slider']:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--oui-primary);
+  outline-offset: 2px;
+}
+
+/* Shared ripple/press feedback (approximates Android's colorControlHighlight) */
+.oui-press {
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.oui-press::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--oui-motion-fast) var(--oui-ease);
+  pointer-events: none;
+}
+
+.oui-press:hover::after {
+  opacity: 0.06;
+}
+
+.oui-press:active::after {
+  opacity: 0.12;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

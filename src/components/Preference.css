@@ -1,0 +1,418 @@
+/* Shared preference styles — ported from the oui_preference_* layouts
+   and sesl list metrics (24dp insets, 26dp rounding, inset dividers). */
+
+.oui-pref-group__subheader {
+  min-height: 20px; /* sesl_list_subheader_min_height */
+  padding: 13px 24px 5px; /* sesl_list_subheader_padding_* */
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--oui-subheader-text);
+  display: flex;
+  align-items: center;
+}
+
+.oui-pref-group--card {
+  margin: 12px 16px;
+  border-radius: var(--oui-radius-xl);
+  background: var(--oui-card);
+  overflow: hidden;
+}
+
+.oui-pref-group--card .oui-pref-group__subheader {
+  padding-top: 20px;
+}
+
+.oui-pref-group__items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rounded first/last rows when the group itself has no card background
+   but sits on the grey page background. */
+.oui-pref-group:not(.oui-pref-group--card) {
+  position: relative;
+}
+
+/* ---- row ---- */
+
+.oui-pref {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 12px 24px;
+  color: var(--oui-text);
+}
+
+.oui-pref.is-disabled {
+  opacity: 0.4;
+}
+
+.oui-pref--interactive {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.oui-pref__icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--oui-text);
+}
+
+.oui-pref__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.oui-pref__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.oui-pref__title {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--oui-text);
+  overflow-wrap: anywhere;
+}
+
+.oui-pref__summary {
+  margin-top: 3px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--oui-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.oui-pref__end {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--oui-text-secondary);
+  font-size: 14px;
+}
+
+/* Inset divider: keyed off the PREVIOUS sibling's icon state so the line
+   starts at the text column (64px) or at the content inset (24px). */
+.oui-pref-group__items > .oui-pref + .oui-pref::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 64px; /* 24 padding + 24 icon + 16 gap */
+  right: 0;
+  height: 1px;
+  background: var(--oui-divider);
+}
+
+.oui-pref-group__items > .oui-pref.no-icon + .oui-pref::before {
+  left: 24px;
+}
+
+/* ---- switch preference ---- */
+
+.oui-pref-switch .oui-pref__end {
+  margin-right: -10px; /* optically align the 52px switch hit area */
+}
+
+/* ---- slider preference (SeekBarPreferencePro) ---- */
+
+.oui-pref-slider {
+  display: block;
+}
+
+.oui-pref-slider__controls {
+  margin-top: 10px;
+}
+
+/* ---- description preference (UnclickablePreference) ---- */
+
+.oui-pref-description {
+  padding: 20px 24px; /* margins 20 top/bottom, padding 24 sides */
+  font-size: 14px;
+  line-height: 18px; /* text 14sp + lineSpacingExtra 4sp */
+  color: var(--oui-desc-text);
+}
+
+.oui-pref-description a {
+  color: var(--oui-desc-link);
+  text-decoration: underline;
+}
+
+.oui-pref-description--subheader {
+  padding-bottom: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--oui-subheader-text);
+}
+
+/* ---- horizontal radio (HorizontalRadioPreference) ---- */
+
+.oui-hradio {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.oui-hradio__item {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 8px 14px; /* radio pref paddings */
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--oui-radio-off);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.oui-hradio__item:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.oui-hradio__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+}
+
+.oui-hradio__image img,
+.oui-hradio__image svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.oui-hradio__title {
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+.oui-hradio__subtitle {
+  font-size: 15px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.oui-hradio__item.is-selected {
+  color: var(--oui-primary-dark); /* colorPrimaryDark when selected */
+}
+
+.oui-hradio__radio {
+  margin-top: 14px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oui-hradio__radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  transform: scale(0);
+  transition: transform var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-hradio__item.is-selected .oui-hradio__radio::after {
+  transform: scale(1);
+}
+
+/* image variant: radio above label per `oui_preference_horizontal_radio_item` */
+.oui-hradio--image .oui-hradio__radio {
+  order: -1;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.oui-hradio--image .oui-hradio__title {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.oui-hradio--image .oui-hradio__subtitle {
+  display: none;
+}
+
+/* ---- tips card (TipsCardPreference) ---- */
+
+.oui-tips {
+  position: relative;
+  padding-top: 24px; /* oui_preference_tips_layout paddingTop */
+  background: var(--oui-tips-bg);
+  color: var(--oui-text);
+}
+
+.oui-pref-group:not(.oui-pref-group--card) .oui-tips {
+  border-radius: var(--oui-radius-xl);
+}
+
+.oui-tips__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 20px 0 24px;
+  padding-bottom: 8px;
+}
+
+.oui-tips__title {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding-right: 10px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--oui-text);
+}
+
+.oui-tips__close {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--oui-text);
+  cursor: pointer;
+}
+
+.oui-tips__close:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.oui-tips__close svg {
+  width: 22px;
+  height: 22px; /* close icon 22dp */
+}
+
+.oui-tips__summary {
+  margin: 0 24px 8px;
+  font-size: 15px;
+  line-height: 19px; /* 15sp + 4 lineSpacingExtra */
+  color: var(--oui-text);
+}
+
+.oui-tips__children {
+  margin: 0 24px;
+}
+
+.oui-tips__spacer {
+  height: 16px;
+}
+
+.oui-tips__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  margin: 0 12px 14px 12px;
+  padding-top: 4px;
+}
+
+.oui-tips__button {
+  min-height: 34px;
+  padding: 4px 12px;
+  border: none;
+  border-radius: var(--oui-radius-xl);
+  background: transparent;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--oui-text);
+  cursor: pointer;
+  transition: background-color var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-tips__button:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.oui-tips__button:active {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ---- color picker (ColorPickerPreference) ---- */
+
+.oui-color-picker {
+  padding-top: 4px;
+}
+
+.oui-color-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  gap: 10px;
+}
+
+.oui-color-picker__swatch {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    var(--swatch);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+  transition: transform var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-color-picker__swatch:hover {
+  transform: scale(1.08);
+}
+
+.oui-color-picker__swatch.is-selected::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--oui-primary);
+}
+
+.oui-color-picker__swatch.is-light {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.oui-color-picker__alpha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.oui-color-picker__alpha input[type='range'] {
+  flex: 1;
+  accent-color: var(--oui-primary);
+}
+
+.oui-color-picker__alpha-value {
+  min-width: 40px;
+  font-size: 13px;
+  color: var(--oui-text-secondary);
+  text-align: right;
+}

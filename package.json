@@ -1,0 +1,71 @@
+{
+  "name": "@oneuiproject/react",
+  "version": "1.0.0",
+  "description": "Samsung One UI design system components for React — an open web port of the OneUIProject/oneui-design Android library.",
+  "license": "MIT",
+  "author": "OneUIProject",
+  "homepage": "https://github.com/OneUIProject/oneui-design",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OneUIProject/oneui-design.git"
+  },
+  "keywords": [
+    "react",
+    "react-components",
+    "oneui",
+    "one-ui",
+    "samsung",
+    "design-system",
+    "ui",
+    "material"
+  ],
+  "type": "module",
+  "main": "./dist/oneui-react.cjs",
+  "module": "./dist/oneui-react.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/oneui-react.js",
+      "require": "./dist/oneui-react.cjs"
+    },
+    "./icons": {
+      "types": "./dist/types/oneui-icons/index.d.ts",
+      "import": "./dist/icons.js",
+      "require": "./dist/icons.cjs"
+    },
+    "./style.css": "./dist/oneui-react.css",
+    "./dist/oneui-react.css": "./dist/oneui-react.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "**/oneui-react.js",
+    "**/oneui-react.cjs"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run build",
+    "generate:icons": "node scripts/generate-icons.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}

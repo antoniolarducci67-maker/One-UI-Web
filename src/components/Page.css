@@ -1,0 +1,238 @@
+/* ToolbarLayout port.
+   toolbar height = 56dp pinned; big title scrolls away; content surface
+   gets the 26dp top rounded corners (RoundFrameLayout). */
+
+.oui-page {
+  --oui-header-bg: var(--oui-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  background: var(--oui-header-bg);
+  color: var(--oui-text);
+}
+
+.oui-page__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  overscroll-behavior: contain;
+}
+
+/* ---- pinned toolbar (actionBarSize ≈ 56dp) ---- */
+
+.oui-page__toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 56px;
+  flex: none;
+  padding: 0 4px;
+  background: var(--oui-header-bg);
+}
+
+.oui-page__nav {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--oui-primary-icon, var(--oui-text));
+  cursor: pointer;
+}
+
+.oui-page__nav-spacer {
+  width: 8px;
+  flex: none;
+}
+
+.oui-page__nav-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 17px; /* oui_n_badge_view_size */
+  height: 17px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--oui-badge);
+  color: #fff;
+  font-size: 11px; /* oui_n_badge_text_size */
+  font-weight: 700;
+  line-height: 1;
+  border: 2px solid var(--oui-header-bg);
+}
+
+.oui-page__collapsed-title {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity var(--oui-motion-fast) var(--oui-ease);
+}
+
+/* When no nav button, align the collapsed title with the usual 24dp inset. */
+.oui-page__toolbar > .oui-page__collapsed-title:first-child {
+  margin-left: 20px;
+}
+
+.oui-page__toolbar-spacer {
+  flex: 1;
+  min-width: 8px;
+}
+
+.oui-page__actions {
+  display: flex;
+  align-items: center;
+}
+
+.oui-page__actions > * {
+  flex: none;
+}
+
+/* ---- expanding title ---- */
+
+.oui-page__title-block {
+  flex: none;
+  padding: 4px 24px 18px;
+}
+
+.oui-page:not([data-collapsed]) .oui-page__title-block {
+  padding-top: 6px;
+}
+
+.oui-page__expanded-title {
+  margin: 0;
+  font-family: var(--oui-font-title);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  color: var(--oui-text);
+  overflow-wrap: anywhere;
+}
+
+.oui-page__expanded-subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--oui-text-secondary);
+}
+
+/* ---- content surface (RoundFrameLayout, rounded top corners) ---- */
+
+.oui-page__surface {
+  flex: 1 0 auto;
+  background: var(--oui-surface);
+  border-radius: var(--oui-radius-page) var(--oui-radius-page) 0 0;
+  color: var(--oui-text);
+  min-width: 0;
+}
+
+/* ---- footer (BottomNav etc.) ---- */
+
+.oui-page__footer {
+  flex: none;
+  background: var(--oui-header-bg);
+}
+
+/* ---- search mode ---- */
+
+.oui-page__search {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.oui-page__search-input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 8px;
+  border: none;
+  border-radius: var(--oui-radius-xl);
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--oui-text);
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+[data-oneui-theme='dark'] .oui-page__search-input {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.oui-page__search-input::placeholder {
+  color: var(--oui-text-secondary);
+}
+
+.oui-page__search-input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.oui-page__search-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--oui-text-secondary);
+}
+
+/* ---- action (selection) mode ---- */
+
+.oui-page__action-mode {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.oui-page__action-count {
+  font-size: 18px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.oui-page__action-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.oui-page__action-all input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--oui-primary);
+  cursor: pointer;
+}

@@ -1,0 +1,92 @@
+/* BottomNavigationView footer. */
+
+.oui-bottom-nav {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-height: 64px;
+  padding: 4px 0 max(4px, env(safe-area-inset-bottom));
+  background: var(--oui-bg);
+}
+
+.oui-bottom-nav__item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 6px 4px;
+  border: none;
+  background: transparent;
+  color: var(--oui-text-secondary);
+  font-family: inherit;
+  cursor: pointer;
+  transition: color var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-bottom-nav__item.is-active {
+  color: var(--oui-primary);
+}
+
+.oui-bottom-nav__item:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.oui-bottom-nav__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.oui-bottom-nav__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.oui-bottom-nav__badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--oui-badge);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.oui-bottom-nav__label {
+  font-size: 12px;
+  font-weight: 600;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* shifting: only the active item shows its label */
+.oui-bottom-nav--shifting .oui-bottom-nav__label {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity var(--oui-motion-fast) var(--oui-ease),
+    transform var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-bottom-nav--shifting .oui-bottom-nav__item.is-active .oui-bottom-nav__label {
+  opacity: 1;
+  transform: translateY(0);
+}
