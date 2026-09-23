@@ -1,0 +1,72 @@
+/* One UI switch — dimensions/colors follow sesl_switch_* tokens. */
+
+.oui-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.oui-switch:disabled {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+.oui-switch__track {
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--oui-switch-track-off);
+  transition: background-color var(--oui-motion-medium) var(--oui-ease);
+}
+
+.oui-switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--oui-switch-thumb);
+  border: 1px solid var(--oui-switch-thumb-stroke);
+  box-sizing: border-box;
+  transition: transform var(--oui-motion-medium) var(--oui-ease),
+    width var(--oui-motion-medium) var(--oui-ease);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.oui-switch:hover .oui-switch__thumb {
+  transform: scale(1.05);
+}
+
+.oui-switch:active .oui-switch__thumb {
+  width: 26px;
+}
+
+.oui-switch[aria-checked='true'] .oui-switch__track {
+  background: var(--oui-switch-track-on);
+}
+
+.oui-switch[aria-checked='true'] .oui-switch__thumb {
+  transform: translateX(20px);
+  border-color: transparent;
+}
+
+.oui-switch[aria-checked='true']:hover .oui-switch__thumb {
+  transform: translateX(20px) scale(1.05);
+}
+
+.oui-switch[aria-checked='true']:active .oui-switch__thumb {
+  transform: translateX(16px);
+  width: 26px;
+}

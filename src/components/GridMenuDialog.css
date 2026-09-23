@@ -1,0 +1,82 @@
+/* GridMenuDialog — oui_dialog_grid_menu.xml + oui_view_grid_menu_dialog_item */
+
+.oui-grid-menu .oui-dialog__body {
+  padding: 20px 16px; /* vertical 20dp, horizontal 16dp */
+}
+
+.oui-grid-menu__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--oui-grid-columns, 4), minmax(0, 1fr));
+  gap: 8px; /* oui_grid_menu_dialog_item_gap */
+}
+
+@media (max-width: 380px) {
+  .oui-grid-menu__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.oui-grid-menu__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 84px;
+  padding: 12px 4px;
+  border: none;
+  border-radius: var(--oui-radius-sm); /* item ripple radius 12dp */
+  background: transparent;
+  color: var(--oui-grid-item-text);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.oui-grid-menu__item:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.oui-grid-menu__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--oui-grid-item-text);
+}
+
+.oui-grid-menu__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* "N" new badge — 17dp orange circle */
+.oui-grid-menu__badge {
+  position: absolute;
+  top: -4px;
+  right: -10px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: var(--oui-badge);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.oui-grid-menu__label {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--oui-grid-item-text);
+  overflow-wrap: anywhere;
+}

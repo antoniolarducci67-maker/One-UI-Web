@@ -1,0 +1,6 @@
+/* RoundFrameLayout / RoundLinearLayout port. */
+
+.oui-round {
+  background: var(--oui-surface);
+  overflow: hidden;
+}

@@ -1,0 +1,156 @@
+/* HapticSeekBar / SeekBarPreferencePro port. */
+
+.oui-slider-wrap {
+  width: 100%;
+}
+
+.oui-slider-wrap--stepper {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.oui-slider-wrap__track {
+  min-width: 0;
+}
+
+.oui-slider-wrap__readout {
+  grid-column: 1 / -1;
+}
+
+.oui-slider {
+  position: relative;
+  height: 32px;
+  min-height: 32px; /* HapticSeekBar minHeight */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.oui-slider.is-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+.oui-slider__rail {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--oui-slider-rail);
+  overflow: visible;
+}
+
+.oui-slider__fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--oui-slider-fill-start, 0%);
+  width: calc(var(--oui-slider-fill-end, 0%) - var(--oui-slider-fill-start, 0%));
+  min-width: 4px;
+  border-radius: 2px;
+  background: var(--oui-slider-fill);
+  transition: background-color var(--oui-motion-fast) var(--oui-ease);
+}
+
+/* dual-thumb overlap uses the activated overlap color (orange) */
+.oui-slider.is-range .oui-slider__fill {
+  background: var(--oui-slider-overlap);
+}
+
+.oui-slider__ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0;
+  pointer-events: none;
+}
+
+.oui-slider__tick {
+  position: absolute;
+  top: 50%;
+  width: 7px; /* 7dp tick mark */
+  height: 7px;
+  border-radius: 50%;
+  background: var(--oui-slider-tick);
+  transform: translate(-50%, -50%);
+}
+
+.oui-slider__thumb {
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: var(--oui-slider-thumb);
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
+  transition: transform var(--oui-motion-fast) var(--oui-ease);
+  pointer-events: none;
+}
+
+.oui-slider:hover .oui-slider__thumb,
+.oui-slider__thumb.is-dragging {
+  transform: translateY(-50%) scale(1.12);
+}
+
+.oui-slider:focus-visible .oui-slider__thumb {
+  outline: 2px solid var(--oui-primary);
+  outline-offset: 2px;
+}
+
+.oui-slider__value {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--oui-primary-dark); /* seekbar_value → colorPrimaryDark */
+}
+
+.oui-slider__hidden-input {
+  display: none;
+}
+
+/* steppers — seekbar_pro ± buttons (32dp, green/red icons) */
+
+.oui-slider__stepper {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: background-color var(--oui-motion-fast) var(--oui-ease);
+}
+
+[data-oneui-theme='dark'] .oui-slider__stepper {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.oui-slider__stepper:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.oui-slider__stepper:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.oui-slider__stepper--minus {
+  color: var(--oui-red);
+}
+
+.oui-slider__stepper--plus {
+  color: var(--oui-green);
+}

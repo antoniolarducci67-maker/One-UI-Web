@@ -1,0 +1,74 @@
+/* SwitchBarLayout — sesl_switchbar_height 64dp, margin-bottom 20dp.
+   Bar background: off = #fcfcfc/#171717, on = black 5% / white 15%. */
+
+.oui-switchbar-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.oui-switchbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 64px;
+  flex: none;
+  margin-bottom: 20px;
+  padding: 0 16px;
+  background: var(--oui-surface);
+  transition: background-color var(--oui-motion-medium) var(--oui-ease);
+}
+
+.oui-switchbar[data-on='true'] {
+  background: rgba(0, 0, 0, 0.05); /* sesl_switchbar_on_background_color_light #0d000000 */
+}
+
+[data-oneui-theme='dark'] .oui-switchbar[data-on='true'] {
+  background: rgba(255, 255, 255, 0.15); /* #26ffffff */
+}
+
+.oui-switchbar__label {
+  flex: 1;
+  min-width: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--oui-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.oui-switchbar__spinner {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--oui-slider-rail);
+  border-top-color: var(--oui-primary);
+  animation: oui-switchbar-spin 0.9s linear infinite;
+}
+
+@keyframes oui-switchbar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.oui-switchbar__content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.oui-switchbar__action {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--oui-primary-dark);
+  padding: 8px 12px;
+  border-radius: var(--oui-radius-lg);
+  cursor: pointer;
+}

@@ -1,0 +1,127 @@
+/* One UI dialog window — 28dp radius, sesl paddings & footer bar. */
+
+.oui-dialog-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.oui-dialog__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--oui-overlay);
+  animation: oui-fade-in var(--oui-motion-medium) var(--oui-ease) both;
+}
+
+.oui-dialog {
+  position: relative;
+  width: 100%;
+  min-width: 280px;
+  max-height: min(720px, calc(100vh - 48px));
+  display: flex;
+  flex-direction: column;
+  background: var(--oui-dialog-bg);
+  color: var(--oui-dialog-text);
+  border-radius: var(--oui-radius-dialog);
+  box-shadow: var(--oui-shadow-2);
+  animation: oui-dialog-in var(--oui-motion-medium) var(--oui-ease) both;
+  overflow: hidden;
+}
+
+.oui-dialog__title {
+  margin: 0;
+  padding: 24px 24px 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--oui-dialog-text);
+}
+
+.oui-dialog__body {
+  padding: 16px 24px 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--oui-dialog-text);
+  overflow-y: auto;
+}
+
+.oui-dialog__title + .oui-dialog__body {
+  padding-top: 12px;
+}
+
+.oui-dialog__body:first-child {
+  padding-top: 24px;
+}
+
+/* Footer: hairline-separated equal-width actions */
+.oui-dialog__actions {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--oui-divider);
+}
+
+.oui-dialog__actions > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.oui-dialog__actions > * + * {
+  border-left: 1px solid var(--oui-divider);
+}
+
+.oui-dialog__button {
+  min-height: 52px;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--oui-action);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-dialog__button:hover:not(:disabled) {
+  background: rgba(3, 129, 254, 0.08);
+}
+
+.oui-dialog__button:active:not(:disabled) {
+  background: rgba(3, 129, 254, 0.16);
+}
+
+.oui-dialog__button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.oui-dialog__button.is-emphasis {
+  font-weight: 700;
+}
+
+@keyframes oui-dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes oui-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

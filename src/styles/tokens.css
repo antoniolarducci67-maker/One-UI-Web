@@ -1,0 +1,254 @@
+/*
+ * One UI design tokens for the web.
+ *
+ * Every value is ported from the Android resources of
+ * OneUIProject/oneui-design (+ sesl_* base values from OneUIProject/oneui-core):
+ *
+ *   lib/src/main/res/values/colors.xml          (light)
+ *   lib/src/main/res/values-night/colors.xml    (dark)
+ *   lib/src/main/res/values/dimens.xml
+ *   lib/src/main/res/values/styles.xml
+ */
+
+:root,
+[data-oneui-theme='light'] {
+  color-scheme: light;
+
+  /* Surfaces (sesl_round_and_bgcolor_light / sesl_background_color_light / sesl_white) */
+  --oui-bg: #f6f6f6;
+  --oui-surface: #fcfcfc;
+  --oui-elevated: #ffffff;
+  --oui-card: #ffffff;
+  --oui-dialog-bg: #fafafa;
+  --oui-tips-bg: #fcfcfc;
+
+  /* Text (oui_primary_text_color + colors from the design lib) */
+  --oui-text: #010101;
+  --oui-text-strong: #252525;
+  --oui-text-secondary: #858585;
+  --oui-text-muted: #8c8c8c;
+  --oui-subheader-text: #8c8c8c;
+
+  /* Lines */
+  --oui-divider: rgba(0, 0, 0, 0.08); /* sesl_list_divider_color_light #14000000 */
+  --oui-hairline: rgba(0, 0, 0, 0.12);
+
+  /* Accents (sesl_primary_color / sesl_primary_dark_color / functional colors) */
+  --oui-primary: #0381fe;
+  --oui-primary-dark: #0072de;
+  --oui-green: #14a866; /* sesl_functional_green_light */
+  --oui-orange: #ef5e16; /* sesl_functional_orange_light */
+  --oui-red: #db332a; /* sesl_functional_red_light */
+  --oui-badge: #ef5e16; /* oui_n_badge_background_color */
+
+  /* Buttons (oui_btn_border_color / oui_btn_text_color) */
+  --oui-btn-border: rgba(37, 37, 37, 0.4); /* #66252525 */
+  --oui-btn-text: #666666;
+  --oui-appinfo-btn-bg: #ebebeb;
+  --oui-appinfo-btn-text: #252525;
+
+  /* Links / related card (oui_relative_link_*) */
+  --oui-link-bg: rgba(3, 129, 254, 0.059); /* colorPrimary @ 5.9% */
+  --oui-link-bg-pressed: rgba(3, 129, 254, 0.14);
+  --oui-link-text: #0072de; /* colorPrimaryDark light */
+
+  /* Toast (oui_toast_frame_mtrl: #e63a3a3a, radius 22dp) */
+  --oui-toast-bg: rgba(58, 58, 58, 0.9);
+  --oui-toast-text: #fafafa;
+
+  /* TipPopup (sem_tip_popup_background_color / sem_tip_popup_text_color) */
+  --oui-tip-bg: #474747;
+  --oui-tip-text: #fafafa;
+
+  /* SeekBar / Slider */
+  --oui-slider-rail: #cacaca; /* sesl_seekbar_overlap_color_default base */
+  --oui-slider-fill: var(--oui-primary);
+  --oui-slider-overlap: #ef5e16; /* sesl_seekbar_overlap_color_activated_light */
+  --oui-slider-thumb: #fafafa;
+  --oui-slider-tick: #9c9c9c; /* oui_seekbar_circle_marker_color */
+
+  /* Switch (sesl_switch_track / thumb) */
+  --oui-switch-track-off: #999999;
+  --oui-switch-track-on: #0381fe;
+  --oui-switch-thumb: #fafafa;
+  --oui-switch-thumb-stroke: #8c8c8c;
+
+  /* Dialogs / grid menu */
+  --oui-dialog-text: #252525; /* oui_progress_dialog_text_color */
+  --oui-dialog-subtext: #505050; /* oui_progress_dialog_horizontal_text_color */
+  --oui-action: #0072de;
+  --oui-grid-item-text: #252525; /* oui_grid_menu_dialog_item_icon_text_color */
+  --oui-grid-ripple: rgba(0, 0, 0, 0.1); /* #1a000000 */
+
+  /* Preferences */
+  --oui-desc-text: #252525; /* oui_unclickablepref_text_color */
+  --oui-desc-link: #3b3b3b; /* oui_unclickablepref_link_text_color */
+  --oui-radio-off: #858585; /* oui_horizontalradiopref_text_unselected_color */
+
+  /* Scrim / dim (oui_drawerlayout_drawer_dim_color) */
+  --oui-drawer-dim: rgba(0, 0, 0, 0.2); /* #33000000 */
+  --oui-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Elevation */
+  --oui-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+  --oui-shadow-2: 0 6px 24px rgba(0, 0, 0, 0.16);
+}
+
+[data-oneui-theme='dark'] {
+  color-scheme: dark;
+
+  /* Surfaces (sesl_round_and_bgcolor_dark / sesl_background_color_dark) */
+  --oui-bg: #010101;
+  --oui-surface: #171717;
+  --oui-elevated: #252525;
+  --oui-card: #1e1e1e;
+  --oui-dialog-bg: #252525;
+  --oui-tips-bg: #252525; /* oui_tipscardpref_bg_color night */
+
+  /* Text (oui_primary_text_color night = #fafafa) */
+  --oui-text: #fafafa;
+  --oui-text-strong: #fafafa;
+  --oui-text-secondary: #a8a9a9; /* radio unselected night */
+  --oui-text-muted: #999999; /* appinfolayout info text night */
+  --oui-subheader-text: #999999; /* sesl_list_subheader_text_color_dark */
+
+  /* Lines (sesl_list_divider_color_dark #26ffffff) */
+  --oui-divider: rgba(255, 255, 255, 0.15);
+  --oui-hairline: rgba(255, 255, 255, 0.12);
+
+  /* Accents */
+  --oui-primary: #0381fe;
+  --oui-primary-dark: #3e91ff; /* sesl_primary_dark_color_dark */
+  --oui-green: #5ad69e; /* sesl_functional_green_dark */
+  --oui-orange: #f6874f; /* sesl_functional_orange_dark */
+  --oui-red: #f76f68; /* sesl_functional_red_dark */
+  --oui-badge: #ef5e16; /* no night override in the source */
+
+  /* Buttons (night overrides) */
+  --oui-btn-border: #fafafa; /* oui_btn_border_color night */
+  --oui-btn-text: #fafafa;
+  --oui-appinfo-btn-bg: #1f1f1f;
+  --oui-appinfo-btn-text: #fafafa;
+
+  /* Related card (colorPrimary @ 30.2% night) */
+  --oui-link-bg: rgba(3, 129, 254, 0.302);
+  --oui-link-bg-pressed: rgba(3, 129, 254, 0.42);
+  --oui-link-text: #3e91ff;
+
+  /* Toast — same translucent dark pill in both themes */
+  --oui-toast-bg: rgba(58, 58, 58, 0.9);
+  --oui-toast-text: #fafafa;
+
+  /* TipPopup */
+  --oui-tip-bg: #474747;
+  --oui-tip-text: #fafafa;
+
+  /* SeekBar / Slider (night tokens) */
+  --oui-slider-rail: #4f4f4f;
+  --oui-slider-fill: var(--oui-primary);
+  --oui-slider-overlap: #ff6021; /* sesl_seekbar_overlap_color_activated_dark */
+  --oui-slider-thumb: #fafafa;
+  --oui-slider-tick: #808080; /* oui_seekbar_circle_marker_color night */
+
+  /* Switch */
+  --oui-switch-track-off: #666660; /* sesl_switch_track_off_color_dark */
+  --oui-switch-track-on: #3e91ff;
+  --oui-switch-thumb: #fafafa;
+  --oui-switch-thumb-stroke: #8f8f8f;
+
+  /* Dialogs / grid menu */
+  --oui-dialog-text: #e5e5e5;
+  --oui-dialog-subtext: #b0b0b0;
+  --oui-action: #3e91ff;
+  --oui-grid-item-text: #fafafa;
+  --oui-grid-ripple: rgba(255, 255, 255, 0.2); /* #33ffffff */
+
+  /* Preferences */
+  --oui-desc-text: #e5e5e5;
+  --oui-desc-link: #fafafa;
+  --oui-radio-off: #a8a9a9;
+
+  /* Scrim (oui_drawerlayout_drawer_dim_color night = #cc000000) */
+  --oui-drawer-dim: rgba(0, 0, 0, 0.8);
+  --oui-overlay: rgba(0, 0, 0, 0.65);
+
+  --oui-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --oui-shadow-2: 0 6px 24px rgba(0, 0, 0, 0.55);
+}
+
+/* Shared, theme-independent tokens */
+:root,
+[data-oneui-theme] {
+  /*
+   * Typography — Samsung's web stack falls back to the platform UI font,
+   * mirroring `sesl_font_family_regular` on Android.
+   */
+  --oui-font:
+    'SamsungOne', 'Samsung Sharp Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --oui-font-title:
+    'Samsung Sharp Sans', 'SamsungOne', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Radii (from the drawables: 26dp cards/pills, 18dp outline buttons, …) */
+  --oui-radius-sm: 12px;
+  --oui-radius-md: 18px;
+  --oui-radius-lg: 22px;
+  --oui-radius-xl: 26px;
+  --oui-radius-dialog: 28px;
+  --oui-radius-page: 26px;
+
+  /* Motion */
+  --oui-motion-fast: 150ms;
+  --oui-motion-medium: 250ms;
+  --oui-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* System preference fallback when no explicit theme has been applied yet */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-oneui-theme]) {
+    color-scheme: dark;
+    --oui-bg: #010101;
+    --oui-surface: #171717;
+    --oui-elevated: #252525;
+    --oui-card: #1e1e1e;
+    --oui-dialog-bg: #252525;
+    --oui-tips-bg: #252525;
+    --oui-text: #fafafa;
+    --oui-text-strong: #fafafa;
+    --oui-text-secondary: #a8a9a9;
+    --oui-text-muted: #999999;
+    --oui-subheader-text: #999999;
+    --oui-divider: rgba(255, 255, 255, 0.15);
+    --oui-hairline: rgba(255, 255, 255, 0.12);
+    --oui-primary-dark: #3e91ff;
+    --oui-green: #5ad69e;
+    --oui-orange: #f6874f;
+    --oui-red: #f76f68;
+    --oui-btn-border: #fafafa;
+    --oui-btn-text: #fafafa;
+    --oui-appinfo-btn-bg: #1f1f1f;
+    --oui-appinfo-btn-text: #fafafa;
+    --oui-link-bg: rgba(3, 129, 254, 0.302);
+    --oui-link-bg-pressed: rgba(3, 129, 254, 0.42);
+    --oui-link-text: #3e91ff;
+    --oui-slider-rail: #4f4f4f;
+    --oui-slider-overlap: #ff6021;
+    --oui-slider-tick: #808080;
+    --oui-switch-track-off: #666660;
+    --oui-switch-track-on: #3e91ff;
+    --oui-switch-thumb-stroke: #8f8f8f;
+    --oui-dialog-text: #e5e5e5;
+    --oui-dialog-subtext: #b0b0b0;
+    --oui-action: #3e91ff;
+    --oui-grid-item-text: #fafafa;
+    --oui-grid-ripple: rgba(255, 255, 255, 0.2);
+    --oui-desc-text: #e5e5e5;
+    --oui-desc-link: #fafafa;
+    --oui-radio-off: #a8a9a9;
+    --oui-drawer-dim: rgba(0, 0, 0, 0.8);
+    --oui-overlay: rgba(0, 0, 0, 0.65);
+    --oui-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+    --oui-shadow-2: 0 6px 24px rgba(0, 0, 0, 0.55);
+  }
+}

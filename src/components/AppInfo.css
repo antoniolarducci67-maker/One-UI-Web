@@ -1,0 +1,96 @@
+/* AppInfoLayout — oui_layout_app_info.xml */
+
+.oui-app-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow-y: auto;
+  background: var(--oui-surface);
+  color: var(--oui-text);
+}
+
+.oui-app-info__upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  padding: 32px 0;
+}
+
+.oui-app-info__icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.oui-app-info__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.oui-app-info__name {
+  margin: 0 24px 8px;
+  font-family: var(--oui-font-title);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--oui-text);
+  overflow-wrap: anywhere;
+}
+
+.oui-app-info__version {
+  margin: 0 24px 8px;
+  padding-top: 2px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--oui-text-muted);
+}
+
+.oui-app-info__progress {
+  margin: 8px 0;
+}
+
+.oui-app-info__notice {
+  margin: 8px 24px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--oui-text-muted);
+}
+
+.oui-app-info__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.oui-app-info__button {
+  min-height: 44px; /* OneUI.AppInfoButton minHeight */
+  padding: 8px 16px;
+  border-radius: 22px; /* oui_btn_app_info radius */
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Grey default pill: bg #ebebeb / #1f1f1f, text #252525 / #fafafa */
+.oui-app-info__button--default {
+  border: none;
+  background: var(--oui-appinfo-btn-bg);
+  color: var(--oui-appinfo-btn-text);
+}
+
+.oui-app-info__button--default:hover {
+  filter: brightness(0.97);
+}
+
+.oui-app-info__children {
+  width: 100%;
+  margin-top: 24px;
+}

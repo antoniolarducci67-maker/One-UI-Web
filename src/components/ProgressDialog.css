@@ -1,0 +1,51 @@
+/* ProgressDialog layouts. */
+
+.oui-progress-dialog__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70px; /* oui_dialog_progress_dialog_circle minHeight */
+  padding: 8px 0;
+}
+
+.oui-progress-dialog--circle .oui-dialog__body {
+  padding: 24px;
+}
+
+.oui-progress-dialog__spinner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px; /* sesl_progress_dialog_padding_* */
+}
+
+.oui-progress-dialog__message {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--oui-dialog-text);
+  overflow-wrap: anywhere;
+}
+
+.oui-progress-dialog__horizontal {
+  padding: 20px 24px;
+}
+
+.oui-progress-dialog__horizontal .oui-progress-dialog__message {
+  display: block;
+  font-size: 14px;
+  color: var(--oui-dialog-subtext); /* oui_progress_dialog_horizontal_text_color */
+  margin-bottom: 4px;
+}
+
+.oui-progress-dialog__bar-space {
+  padding: 8px 0;
+}
+
+.oui-progress-dialog__footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--oui-dialog-subtext);
+}

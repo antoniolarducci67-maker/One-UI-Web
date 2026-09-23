@@ -1,0 +1,77 @@
+/* TipPopup — sem_tip_popup_* tokens: bg #474747, text #fafafa,
+   message margins 18/16, arrow 16×12, button min-height 36. */
+
+.oui-tip {
+  position: fixed;
+  z-index: 9800;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: min(320px, calc(100vw - 24px));
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--oui-tip-bg);
+  color: var(--oui-tip-text);
+  box-shadow: var(--oui-shadow-2);
+  animation: oui-tip-in var(--oui-motion-fast) var(--oui-ease) both;
+}
+
+.oui-tip__message {
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--oui-tip-text);
+}
+
+.oui-tip__action {
+  min-height: 36px;
+  margin-top: 4px;
+  padding: 8px 9px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--oui-tip-text);
+  cursor: pointer;
+}
+
+.oui-tip__action:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.oui-tip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+}
+
+.oui-tip--top .oui-tip__arrow {
+  bottom: -12px;
+  left: var(--oui-tip-arrow-x, 50%);
+  transform: translateX(-50%);
+  border-top-color: var(--oui-tip-bg);
+  border-bottom: none;
+  border-width: 6px 8px;
+}
+
+.oui-tip--bottom .oui-tip__arrow {
+  top: -12px;
+  left: var(--oui-tip-arrow-x, 50%);
+  transform: translateX(-50%);
+  border-bottom-color: var(--oui-tip-bg);
+  border-top: none;
+  border-width: 6px 8px;
+}
+
+@keyframes oui-tip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

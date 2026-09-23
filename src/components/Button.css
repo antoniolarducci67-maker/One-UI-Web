@@ -1,0 +1,88 @@
+/* One UI buttons — ported from `OneUI.ButtonStyle*` in values/styles.xml. */
+
+.oui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 9px 16.5px;
+  border: none;
+  border-radius: var(--oui-radius-md);
+  background: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  transition: background-color var(--oui-motion-fast) var(--oui-ease),
+    opacity var(--oui-motion-fast) var(--oui-ease),
+    transform var(--oui-motion-fast) var(--oui-ease);
+}
+
+.oui-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.oui-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+  pointer-events: none;
+}
+
+.oui-btn__label {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Colored (filled) — backgroundTint = ?colorPrimary with disabled alpha 0.4 */
+.oui-btn--colored {
+  background: var(--oui-primary);
+  color: #fafafa;
+  min-width: 64px;
+}
+
+.oui-btn--colored:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+/* Outline — 0.3dp stroke #66252525, radius 18dp, text #666666 */
+.oui-btn--outline {
+  border: 1px solid var(--oui-btn-border);
+  color: var(--oui-btn-text);
+  background: transparent;
+  padding: 8px 16.5px;
+}
+
+.oui-btn--outline:hover:not(:disabled) {
+  background: rgba(3, 129, 254, 0.06);
+}
+
+.oui-btn--outline:active:not(:disabled) {
+  background: rgba(3, 129, 254, 0.12);
+}
+
+/* Transparent — borderless */
+.oui-btn--transparent {
+  color: var(--oui-text);
+  background: transparent;
+  padding: 8px 16px;
+}
+
+.oui-btn--transparent:hover:not(:disabled) {
+  background: rgba(3, 129, 254, 0.06);
+}
+
+.oui-btn--transparent:active:not(:disabled) {
+  background: rgba(3, 129, 254, 0.12);
+}
+
+.oui-btn--full {
+  display: flex;
+  width: 100%;
+}
